@@ -1,8 +1,13 @@
+using DeltaCore.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+
+//Register Products Service
+builder.Services.AddSingleton<IProductsService, ProductsService>();
 
 var app = builder.Build();
 
