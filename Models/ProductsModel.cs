@@ -4,7 +4,9 @@ namespace DeltaCore.Models;
 
 public class ProductsModel
 {
-	[Key,Required,MinLength(1),MaxLength(4)]
+	[Key,Required]
+	[RegularExpression(@"^\d{4}$", ErrorMessage = "The ID must be a 4-digit number.")]
+    [Range(0, 9999, ErrorMessage = "The ID must be between 0000 and 9999.")]
 	public int Id { get; set; }
 
 	[Required, MaxLength(100)]
